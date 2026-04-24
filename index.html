@@ -112,10 +112,8 @@ max-width:200px;
 border-radius:10px;
 }
 
-@media(max-width:600px){
-.grid{grid-template-columns:1fr;} 
-  
-  #loading{
+/* LOADING */
+#loading{
 position:fixed;
 top:0;
 left:0;
@@ -151,15 +149,20 @@ margin-bottom:15px;
 0%{transform:rotate(0deg);}
 100%{transform:rotate(360deg);}
 }
-  
+
+@media(max-width:600px){
+.grid{grid-template-columns:1fr;}
+}
 </style>
 </head>
+
+<body>
+
+<!-- LOADING -->
 <div id="loading">
   <div class="spinner"></div>
   <p>Memproses pendaftaran...</p>
 </div>
-  
-<body>
 
 <div class="container">
 <div class="card">
@@ -306,6 +309,7 @@ document.getElementById("loading").classList.add("active")
 setTimeout(()=>{
 window.location.href="https://jotri623.github.io/PENDAFTARAN-HERBALIFE-RUN/"
 },2000)
+}
 }
 
 prev.onclick=function(){

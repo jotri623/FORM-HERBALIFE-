@@ -60,28 +60,6 @@ gap:15px;
 
 .full{grid-column:1/-1;}
 
-.race{
-border:1px solid #ddd;
-padding:15px;
-border-radius:12px;
-margin-bottom:12px;
-cursor:pointer;
-display:flex;
-justify-content:space-between;
-align-items:center;
-transition:0.2s;
-}
-
-.race:hover{
-border-color:#2563eb;
-background:#f0f6ff;
-}
-
-.race.active{
-border-color:#2563eb;
-background:#e6f0ff;
-}
-
 .summary{
 background:#f8fafc;
 padding:20px;
@@ -198,17 +176,23 @@ border-radius:10px;
 <div class="step">
 <h3>Race Category</h3>
 
-<label>CATEGORY</label>
+<label>Category</label>
 <select id="category" required>
 <option value="">Choose</option>
-<option>Kids Dash : Rp.130.000</option><option>Fun Walk : Rp.150.000</option><option>5K : Rp.200.000</option><option>10K : Rp. 350.000</option>24K : Rp.500.000</option><option>
+<option value="Kids Dash">Kids Dash : Rp.130.000</option>
+<option value="Fun Walk">Fun Walk : Rp.150.000</option>
+<option value="5K">5K : Rp.200.000</option>
+<option value="10K">10K : Rp.350.000</option>
+<option value="24K">24K : Rp.500.000</option>
 </select>
-</div>
 
 <label>Shirt Size</label>
 <select id="size" required>
 <option value="">Choose</option>
-<option>S</option><option>M</option><option>L</option><option>XL</option>
+<option>S</option>
+<option>M</option>
+<option>L</option>
+<option>XL</option>
 </select>
 </div>
 
@@ -287,12 +271,6 @@ prev.onclick=function(){
 if(step>0){ step--; showStep(step) }
 }
 
-function selectRace(el){
-document.querySelectorAll(".race").forEach(r=>r.classList.remove("active"))
-el.classList.add("active")
-el.querySelector("input").checked = true
-}
-
 document.getElementById("file").onchange=function(e){
 const file=e.target.files[0]
 if(file){
@@ -306,13 +284,12 @@ reader.readAsDataURL(file)
 }
 
 function updateSummary(){
-const race=document.querySelector('input[name="race"]:checked')?.value || "-"
 document.getElementById("summary").innerHTML=`
-<b>Nama:</b> ${name.value}<br>
-<b>WA:</b> ${wa.value}<br>
-<b>Email:</b> ${email.value}<br>
-<b>Race:</b> ${race}<br>
-<b>Size:</b> ${size.value}
+<b>Nama:</b> ${document.getElementById("name").value}<br>
+<b>WA:</b> ${document.getElementById("wa").value}<br>
+<b>Email:</b> ${document.getElementById("email").value}<br>
+<b>Category:</b> ${document.getElementById("category").value}<br>
+<b>Size:</b> ${document.getElementById("size").value}
 `
 }
 

@@ -7,22 +7,10 @@
 <title>JVM 2026 Registration</title>
 
 <style>
+*{box-sizing:border-box;font-family:Arial;}
+body{margin:0;background:#f4f7fb;}
 
-*{
-box-sizing:border-box;
-font-family:Arial;
-}
-
-body{
-margin:0;
-background:#f4f7fb;
-}
-
-.container{
-max-width:900px;
-margin:auto;
-padding:30px;
-}
+.container{max-width:900px;margin:auto;padding:30px;}
 
 .card{
 background:white;
@@ -46,35 +34,14 @@ border-radius:30px;
 font-size:13px;
 }
 
-.progress{
-display:flex;
-gap:10px;
-margin-bottom:25px;
-}
+.progress{display:flex;gap:10px;margin-bottom:25px;}
+.bar{flex:1;height:10px;border-radius:20px;background:#ddd;}
+.bar.active{background:#2563eb;}
 
-.bar{
-flex:1;
-height:10px;
-border-radius:20px;
-background:#ddd;
-}
+.step{display:none;}
+.step.active{display:block;}
 
-.bar.active{
-background:#2563eb;
-}
-
-.step{
-display:none;
-}
-
-.step.active{
-display:block;
-}
-
-label{
-font-weight:bold;
-font-size:14px;
-}
+label{font-weight:bold;font-size:14px;}
 
 input,select,textarea{
 width:100%;
@@ -91,9 +58,7 @@ grid-template-columns:1fr 1fr;
 gap:15px;
 }
 
-.full{
-grid-column:1/-1;
-}
+.full{grid-column:1/-1;}
 
 .race{
 border:1px solid #ddd;
@@ -106,9 +71,7 @@ justify-content:space-between;
 align-items:center;
 }
 
-.race:hover{
-border-color:#2563eb;
-}
+.race:hover{border-color:#2563eb;}
 
 .summary{
 background:#f8fafc;
@@ -133,36 +96,33 @@ font-weight:bold;
 cursor:pointer;
 }
 
-.prev{
-background:#e5e7eb;
-}
+.prev{background:#e5e7eb;}
+.next{background:#2563eb;color:white;}
+.submit{background:#16a34a;color:white;}
 
-.next{
-background:#2563eb;
-color:white;
-}
-
-.submit{
-background:#16a34a;
-color:white;
-}
-
-.qr{
-text-align:center;
-}
-
+.qr{text-align:center;}
 .qr img{
 width:220px;
+border-radius:10px;
+border:1px solid #ddd;
 }
 
-</style>
+.upload-box{
+border:2px dashed #ccc;
+padding:20px;
+text-align:center;
+border-radius:12px;
+cursor:pointer;
+}
 
+.upload-box:hover{border-color:#2563eb;}
+
+</style>
 </head>
 
 <body>
 
 <div class="container">
-
 <div class="card">
 
 <div class="header">
@@ -170,7 +130,6 @@ width:220px;
 <h2>HERBALIFE RUN 2026</h2>
 <small>(ICE) BSD CITY</small>
 </div>
-
 <div class="badge">Registration</div>
 </div>
 
@@ -185,113 +144,68 @@ width:220px;
 
 <!-- STEP 1 -->
 <div class="step active">
-
 <h3>Personal Information</h3>
 
 <div class="grid">
-
 <div>
 <label>Full Name</label>
-<input type="text" id="name" required>
+<input type="text" id="name" name="name" required>
 </div>
 
 <div>
 <label>WhatsApp</label>
-<input type="tel" id="wa" required>
+<input type="tel" id="wa" name="wa" required>
 </div>
 
 <div>
 <label>Email</label>
-<input type="email" required>
+<input type="email" name="email" required>
 </div>
 
 <div>
 <label>Date of Birth</label>
-<input type="date" required>
+<input type="date" name="dob" required>
 </div>
 
 <div class="full">
 <label>Address</label>
-<textarea required></textarea>
+<textarea name="address" required></textarea>
 </div>
-
 </div>
-
 </div>
 
 <!-- STEP 2 -->
 <div class="step">
-
 <h3>Race Category</h3>
 
-<div class="race">
-<label>
-<input type="radio" name="race" value="Kids Run - Rp130.000"> 5K Fun Run
-</label>
-<b>Rp130.000</b>
-</div>
-
-<div class="race">
-<label>
-<input type="radio" name="race" value="Fun Walk - Rp150.000"> Fun Walk
-</label>
-<b>Rp150.000</b>
-</div>
-
-<div class="race">
-<label>
-<input type="radio" name="race" value="5K Fun Run - Rp200.000"> 5K Fun Run
-</label>
-<b>Rp200.000</b>
-</div>
-
-<div class="race">
-<label>
-<input type="radio" name="race" value="10K - Rp350.000"> 10K
-</label>
-<b>Rp350.000</b>
-</div>
-
-<div class="race">
-<label>
-<input type="radio" name="race" value="Full Marathon - Rp500.000"> Full Marathon
-</label>
-<b>Rp500.000</b>
-</div>
+<div class="race"><label><input type="radio" name="race" value="5K Fun Run - Rp200.000"> 5K Fun Run</label><b>Rp200.000</b></div>
+<div class="race"><label><input type="radio" name="race" value="10K - Rp350.000"> 10K</label><b>Rp350.000</b></div>
+<div class="race"><label><input type="radio" name="race" value="Full Marathon - Rp500.000"> Full Marathon</label><b>Rp500.000</b></div>
 
 <label>Shirt Size</label>
-<select required>
+<select name="shirt" required>
 <option value="">Choose</option>
-<option>S</option>
-<option>M</option>
-<option>L</option>
-<option>XL</option>
+<option>S</option><option>M</option><option>L</option><option>XL</option>
 </select>
-
 </div>
 
 <!-- STEP 3 -->
 <div class="step">
-
 <h3>Emergency Contact</h3>
 
 <label>Contact Name</label>
-<input type="text">
+<input type="text" name="emergency_name">
 
 <label>Phone Number</label>
-<input type="tel">
+<input type="tel" name="emergency_phone">
 
 <label>Blood Type</label>
-<select>
-<option>A</option>
-<option>B</option>
-<option>AB</option>
-<option>O</option>
+<select name="blood">
+<option>A</option><option>B</option><option>AB</option><option>O</option>
 </select>
 
 <label>Medical History</label>
-<textarea></textarea>
-
+<textarea name="medical"></textarea>
 </div>
 
 <!-- STEP 4 -->
@@ -308,8 +222,19 @@ width:220px;
 <br>
 
 <div class="qr">
-<p>Scan QR untuk pembayaran</p>
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=JVM2026PAYMENT">
+<p>QRIS Pembayaran</p>
+
+<!-- GANTI FILE INI DENGAN QRIS ANDA -->
+<img id="qrisPreview" src="qris.png" alt="QRIS Anda">
+
+<br><br>
+
+<div class="upload-box" onclick="document.getElementById('qrisUpload').click()">
+Klik untuk upload QRIS sendiri
+</div>
+
+<input type="file" id="qrisUpload" accept="image/*" hidden>
+
 </div>
 
 <br>
@@ -330,7 +255,6 @@ width:220px;
 </div>
 
 <script>
-
 let step=0
 
 const steps=document.querySelectorAll(".step")
@@ -339,70 +263,81 @@ const bars=document.querySelectorAll(".bar")
 const next=document.getElementById("nextBtn")
 const prev=document.getElementById("prevBtn")
 
-function showStep(n){
+function validateStep(){
+const inputs=steps[step].querySelectorAll("input,select,textarea")
+for(let i of inputs){
+if(i.hasAttribute("required") && !i.value){
+alert("Harap lengkapi data terlebih dahulu!")
+return false
+}
+}
+return true
+}
 
+function showStep(n){
 steps.forEach((s,i)=>{
-s.classList.remove("active")
-if(i===n){ s.classList.add("active") }
+s.classList.toggle("active", i===n)
 })
 
 bars.forEach((b,i)=>{
-b.classList.remove("active")
-if(i<=n){ b.classList.add("active") }
+b.classList.toggle("active", i<=n)
 })
 
-prev.style.display = (n===0) ? "none" : "inline-block"
+prev.style.display = n===0 ? "none":"inline-block"
 
 if(n===steps.length-1){
 next.textContent="Submit"
-next.classList.remove("next")
-next.classList.add("submit")
+next.classList.replace("next","submit")
 generateSummary()
 }else{
 next.textContent="Berikutnya"
-next.classList.remove("submit")
-next.classList.add("next")
+next.classList.replace("submit","next")
 }
-
 }
 
 next.onclick=function(){
+if(!validateStep()) return
 
 if(step<steps.length-1){
 step++
 showStep(step)
 }else{
 alert("Registrasi berhasil!")
+// redirect contoh:
+// window.location.href="https://linkanda.com"
 }
-
 }
 
 prev.onclick=function(){
-if(step>0){
-step--
-showStep(step)
-}
+if(step>0){ step--; showStep(step) }
 }
 
 function generateSummary(){
-
 document.getElementById("sumName").innerText =
 document.getElementById("name").value
 
-const race =
-document.querySelector('input[name="race"]:checked')
-
+const race=document.querySelector('input[name="race"]:checked')
 if(race){
 document.getElementById("sumRace").innerText = race.value
 }
 
 document.getElementById("reg").innerText =
 "JVM-"+Math.floor(Math.random()*90000+10000)
-
 }
 
-showStep(step)
+// PREVIEW QRIS UPLOAD
+document.getElementById("qrisUpload").addEventListener("change", function(e){
+const file=e.target.files[0]
+if(file){
+const reader=new FileReader()
+reader.onload=function(ev){
+document.getElementById("qrisPreview").src=ev.target.result
+}
+reader.readAsDataURL(file)
+}
+})
 
+showStep(step)
 </script>
 
 </body>

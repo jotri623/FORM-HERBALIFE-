@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>JVM 2026 Registration</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+margin:0;
+background:#f4f7fb;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:30px;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px;
+}
+
+.badge{
+background:#2563eb;
+color:white;
+padding:8px 14px;
+border-radius:30px;
+font-size:13px;
+}
+
+.progress{
+display:flex;
+gap:10px;
+margin-bottom:25px;
+}
+
+.bar{
+flex:1;
+height:10px;
+border-radius:20px;
+background:#ddd;
+}
+
+.bar.active{
+background:#2563eb;
+}
+
+.step{
+display:none;
+}
+
+.step.active{
+display:block;
+}
+
+label{
+font-weight:bold;
+font-size:14px;
+}
+
+input,select,textarea{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:1px solid #ddd;
+margin-top:6px;
+margin-bottom:15px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+}
+
+.full{
+grid-column:1/-1;
+}
+
+.race{
+border:1px solid #ddd;
+padding:15px;
+border-radius:12px;
+margin-bottom:10px;
+cursor:pointer;
+display:flex;
+justify-content:space-between;
+}
+
+.race:hover{
+border-color:#2563eb;
+}
+
+.summary{
+background:#f8fafc;
+padding:20px;
+border-radius:15px;
+border:1px solid #eee;
+}
+
+.actions{
+display:flex;
+justify-content:space-between;
+margin-top:25px;
+}
+
+button{
+padding:14px 20px;
+border:none;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.prev{
+background:#e5e7eb;
+}
+
+.next{
+background:#2563eb;
+color:white;
+}
+
+.submit{
+background:#16a34a;
+color:white;
+}
+
+.qr{
+text-align:center;
+}
+
+.qr img{
+width:220px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<div class="header">
+<div>
+<h2>HERBALIFE RUN 2026</h2>
+<small>(ICE) BSD CITY</small>
+</div>
+
+<div class="badge">Registration</div>
+</div>
+
+<div class="progress">
+<div class="bar active"></div>
+<div class="bar"></div>
+<div class="bar"></div>
+<div class="bar"></div>
+</div>
+
+<form id="form">
+
+<!-- STEP 1 -->
+
+<div class="step active">
+
+<h3>Personal Information</h3>
+
+<div class="grid">
+
+<div>
+<label>Full Name</label>
+<input type="text" id="name" required>
+</div>
+
+<div>
+<label>WhatsApp</label>
+<input type="tel" id="wa" required>
+</div>
+
+<div>
+<label>Email</label>
+<input type="email" required>
+</div>
+
+<div>
+<label>Date of Birth</label>
+<input type="date" required>
+</div>
+
+<div class="full">
+<label>Address</label>
+<textarea required></textarea>
+</div>
+
+</div>
+
+</div>
+
+<!-- STEP 2 -->
+
+<div class="step">
+
+<h3>Race Category</h3>
+
+<div class="race">
+<label>
+<input type="radio" name="race" value=" Kids Run - Rp130.000">
+5K Fun Run
+</label>
+<b>Rp130.000</b>
+</div>
+
+<div class="race">
+<label>
+<div class="race">
+<label>
+<input type="radio" name="race" value="Fun Wallk Fun Run - Rp150.000">
+Funn WalK Fun Run
+</label>
+<b>Rp150.000</b>
+</div>
+
+<div class="race">
+<label>
+<div class="race">
+<label>
+<input type="radio" name="race" value="5K Fun Run - Rp200.000">
+5K Fun Run
+</label>
+<b>Rp200.000</b>
+</div>
+
+<div class="race">
+<label>
+<input type="radio" name="race" value="10K - Rp350000">
+10K
+</label>
+<b>Rp350.000</b>
+</div>
+
+<div class="race">
+<label>
+<input type="radio" name="race" value="Full Marathon - Rp500000">
+Full Marathon
+</label>
+<b>Rp500.000</b>
+</div>
+
+<label>Shirt Size</label>
+<select required>
+<option value="">Choose</option>
+<option>S</option>
+<option>M</option>
+<option>L</option>
+<option>XL</option>
+</select>
+
+</div>
+
+<!-- STEP 3 -->
+
+<div class="step">
+
+<h3>Emergency Contact</h3>
+
+<label>Contact Name</label>
+<input type="text">
+
+<label>Phone Number</label>
+<input type="tel">
+
+<label>Blood Type</label>
+<select>
+<option>A</option>
+<option>B</option>
+<option>AB</option>
+<option>O</option>
+</select>
+
+<label>Medical History</label>
+<textarea></textarea>
+
+</div>
+
+<!-- STEP 4 -->
+
+<div class="step">
+
+<h3>Payment</h3>
+
+<div class="summary">
+
+<p><b>Nama:</b> <span id="sumName"></span></p>
+
+<p><b>Kategori:</b> <span id="sumRace"></span></p>
+
+<p><b>No Registrasi:</b> <span id="reg"></span></p>
+
+</div>
+
+<br>
+
+<div class="qr">
+
+<p>Scan QR untuk pembayaran</p>
+
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=JVM2026PAYMENT">
+
+</div>
+
+<br>
+
+<label>Upload Bukti Transfer</label>
+
+<input type="file" required>
+
+</div>
+
+<div class="actions">
+
+<button type="button" class="prev" id="prevBtn">Kembali</button>
+
+<button type="button" class="next" id="nextBtn">Berikutnya</button>
+
+</div>
+
+</form>
+
+</div>
+</div>
+
+<script>
+
+let step=0
+
+const steps=document.querySelectorAll(".step")
+const bars=document.querySelectorAll(".bar")
+
+const next=document.getElementById("nextBtn")
+const prev=document.getElementById("prevBtn")
+
+function showStep(n){
+
+steps.forEach((s,i)=>{
+
+s.classList.remove("active")
+
+if(i===n){
+s.classList.add("active")
+}
+
+})
+
+bars.forEach((b,i)=>{
+
+b.classList.remove("active")
+
+if(i<=n){
+b.classList.add("active")
+}
+
+})
+
+if(n===0){
+prev.style.display="none"
+}else{
+prev.style.display="inline-block"
+}
+
+if(n===steps.length-1){
+
+next.textContent="Submit"
+next.classList.remove("next")
+next.classList.add("submit")
+
+generateSummary()
+
+}else{
+
+next.textContent="Berikutnya"
+
+}
+
+}
+
+next.onclick=function(){
+
+if(step<steps.length-1){
+
+step++
+
+showStep(step)
+
+}else{
+
+alert("Registrasi berhasil!")
+
+}
+
+}
+
+prev.onclick=function(){
+
+if(step>0){
+
+step--
+
+showStep(step)
+
+}
+
+}
+
+function generateSummary(){
+
+document.getElementById("sumName").innerText =
+document.getElementById("name").value
+
+const race =
+document.querySelector('input[name="race"]:checked')
+
+if(race){
+
+document.getElementById("sumRace").innerText =
+race.value
+
+}
+
+document.getElementById("reg").innerText =
+"JVM-"+Math.floor(Math.random()*90000+10000)
+
+}
+
+showStep(step)
+
+</script>
+
+</body>
+</html>

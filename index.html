@@ -103,6 +103,7 @@ margin-bottom:10px;
 cursor:pointer;
 display:flex;
 justify-content:space-between;
+align-items:center;
 }
 
 .race:hover{
@@ -120,6 +121,8 @@ border:1px solid #eee;
 display:flex;
 justify-content:space-between;
 margin-top:25px;
+gap:10px;
+flex-wrap:wrap;
 }
 
 button{
@@ -181,7 +184,6 @@ width:220px;
 <form id="form">
 
 <!-- STEP 1 -->
-
 <div class="step active">
 
 <h3>Personal Information</h3>
@@ -218,51 +220,41 @@ width:220px;
 </div>
 
 <!-- STEP 2 -->
-
 <div class="step">
 
 <h3>Race Category</h3>
 
 <div class="race">
 <label>
-<input type="radio" name="race" value=" Kids Run - Rp130.000">
-5K Fun Run
+<input type="radio" name="race" value="Kids Run - Rp130.000"> 5K Fun Run
 </label>
 <b>Rp130.000</b>
 </div>
 
 <div class="race">
 <label>
-<div class="race">
-<label>
-<input type="radio" name="race" value="Fun Wallk Fun Run - Rp150.000">
-Funn WalK Fun Run
+<input type="radio" name="race" value="Fun Walk - Rp150.000"> Fun Walk
 </label>
 <b>Rp150.000</b>
 </div>
 
 <div class="race">
 <label>
-<div class="race">
-<label>
-<input type="radio" name="race" value="5K Fun Run - Rp200.000">
-5K Fun Run
+<input type="radio" name="race" value="5K Fun Run - Rp200.000"> 5K Fun Run
 </label>
 <b>Rp200.000</b>
 </div>
 
 <div class="race">
 <label>
-<input type="radio" name="race" value="10K - Rp350000">
-10K
+<input type="radio" name="race" value="10K - Rp350.000"> 10K
 </label>
 <b>Rp350.000</b>
 </div>
 
 <div class="race">
 <label>
-<input type="radio" name="race" value="Full Marathon - Rp500000">
-Full Marathon
+<input type="radio" name="race" value="Full Marathon - Rp500.000"> Full Marathon
 </label>
 <b>Rp500.000</b>
 </div>
@@ -279,7 +271,6 @@ Full Marathon
 </div>
 
 <!-- STEP 3 -->
-
 <div class="step">
 
 <h3>Emergency Contact</h3>
@@ -304,45 +295,33 @@ Full Marathon
 </div>
 
 <!-- STEP 4 -->
-
 <div class="step">
 
 <h3>Payment</h3>
 
 <div class="summary">
-
 <p><b>Nama:</b> <span id="sumName"></span></p>
-
 <p><b>Kategori:</b> <span id="sumRace"></span></p>
-
 <p><b>No Registrasi:</b> <span id="reg"></span></p>
-
 </div>
 
 <br>
 
 <div class="qr">
-
 <p>Scan QR untuk pembayaran</p>
-
 <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=JVM2026PAYMENT">
-
 </div>
 
 <br>
 
 <label>Upload Bukti Transfer</label>
-
 <input type="file" required>
 
 </div>
 
 <div class="actions">
-
 <button type="button" class="prev" id="prevBtn">Kembali</button>
-
 <button type="button" class="next" id="nextBtn">Berikutnya</button>
-
 </div>
 
 </form>
@@ -363,43 +342,26 @@ const prev=document.getElementById("prevBtn")
 function showStep(n){
 
 steps.forEach((s,i)=>{
-
 s.classList.remove("active")
-
-if(i===n){
-s.classList.add("active")
-}
-
+if(i===n){ s.classList.add("active") }
 })
 
 bars.forEach((b,i)=>{
-
 b.classList.remove("active")
-
-if(i<=n){
-b.classList.add("active")
-}
-
+if(i<=n){ b.classList.add("active") }
 })
 
-if(n===0){
-prev.style.display="none"
-}else{
-prev.style.display="inline-block"
-}
+prev.style.display = (n===0) ? "none" : "inline-block"
 
 if(n===steps.length-1){
-
 next.textContent="Submit"
 next.classList.remove("next")
 next.classList.add("submit")
-
 generateSummary()
-
 }else{
-
 next.textContent="Berikutnya"
-
+next.classList.remove("submit")
+next.classList.add("next")
 }
 
 }
@@ -407,29 +369,19 @@ next.textContent="Berikutnya"
 next.onclick=function(){
 
 if(step<steps.length-1){
-
 step++
-
 showStep(step)
-
 }else{
-
 alert("Registrasi berhasil!")
-
 }
 
 }
 
 prev.onclick=function(){
-
 if(step>0){
-
 step--
-
 showStep(step)
-
 }
-
 }
 
 function generateSummary(){
@@ -441,10 +393,7 @@ const race =
 document.querySelector('input[name="race"]:checked')
 
 if(race){
-
-document.getElementById("sumRace").innerText =
-race.value
-
+document.getElementById("sumRace").innerText = race.value
 }
 
 document.getElementById("reg").innerText =
